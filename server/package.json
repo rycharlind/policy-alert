@@ -1,0 +1,16 @@
+{
+  "name": "policy-safe-api",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "dotenv": "^2.0.0",
+    "ether-pudding": "^3.2.0",
+    "ethereumjs-testrpc": "^2.2.4",
+    "express": "~4.0.0",
+    "firebase": "^3.3.2",
+    "mongoose": "~3.6.13",
+    "solc": "0.3.5",
+    "twilio": "^2.10.0",
+    "web3": "^0.17.0-alpha"
+  }
+}
