@@ -1,0 +1,16 @@
+.home {
+
+  &-container {
+    background: whitesmoke;
+    color: white;
+  }
+
+  > div {
+    padding: 40px;
+  }
+
+  table {
+    width: 100%;
+    color: #455A64;
+  }
+}

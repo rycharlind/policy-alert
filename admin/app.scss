@@ -1,0 +1,12 @@
+body {
+}
+
+.page {
+
+  > div {
+    margin-top: 48px;
+  }
+}
+
+@import './header/header';
+@import './home/home';

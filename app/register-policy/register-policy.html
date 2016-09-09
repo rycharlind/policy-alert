@@ -1,0 +1,201 @@
+<div class="register-policy">
+  <md-content>
+    <md-toolbar class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <ul class="breadcrumb">
+          <li><a ng-class="{'breadcrumb-active': vm.states[vm.stateIndex] === vm.states[0]}">Registration</a></li>
+          <li><a ng-class="{'breadcrumb-active': vm.states[vm.stateIndex] === vm.states[1]}">Verification</a></li>
+          <li><a ng-class="{'breadcrumb-active': vm.states[vm.stateIndex] === vm.states[3]}">Review</a></li>
+        </ul>
+      </div>
+    </md-toolbar>
+  </md-content>
+  <div class="register-policy-container" layout="row" flex >
+    <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[0]">
+      <div md-whiteframe="2" class="register-policy-submit">
+        <form name="submitPolicyFrm" ng-submit="vm.registerPolicy()" layout="column" layout-align="center center" layout-fill flex novalidate>
+          <h2>Register</h2>
+          <md-input-container>
+            <label>Last Name</label>
+            <input required name="lastName" type="text" ng-model="vm.policyToRegister.lastName"/>
+            <ng-messages for="submitPolicyFrm.lastName.$error">
+              <ng-message when="required">This is required.</ng-message>
+            </ng-messages>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Date of Birth</label>
+            <input required name="birthDate" type="text" ng-model="vm.policyToRegister.birthDate"/>
+            <div class="hint">MM/DD/YYYY</div>
+          </md-input-container>
+
+          <md-input-container>
+            <label>Carrier</label>
+            <md-select required name="carrier" ng-model="vm.policyToRegister.carrier">
+              <md-option><em>None</em></md-option>
+              <md-option ng-repeat="carrier in vm.carriers" ng-value="carrier">
+                {{ carrier }}
+              </md-option>
+            </md-select>
+            <ng-messages for="submitPolicyFrm.carrier.$error">
+              <ng-message when="required">This is required.</ng-message>
+            </ng-messages>
+          </md-input-container>
+
+          <md-input-container >
+            <label>Policy Number</label>
+            <input required name="policyNumber" type="text" ng-model="vm.policyToRegister.policyNumber"/>
+            <ng-messages for="submitPolicyFrm.policyNumber.$error">
+              <ng-message when="required">This is required.</ng-message>
+            </ng-messages>
+          </md-input-container>
+          <md-button type="submit" class="md-accent md-raised">
+            Submit
+          </md-button>
+        </form>
+      </div>
+    </div>
+
+    <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[1]">
+      <div md-whiteframe="2" class="register-policy-identity">
+        <form ng-submit="vm.sendIdentityOption()" layout="column" layout-align="center center" layout-fill flex novalidate>
+          <h2>Choose verification option:</h2>
+          <md-radio-group ng-model="vm.identityChoice">
+
+            <md-radio-button ng-value="vm.identity.email" class="md-primary">{{vm.identity.email}}</md-radio-button>
+            <md-radio-button ng-value="vm.identity.phoneNumber">{{vm.identity.phoneNumber}}</md-radio-button>
+
+          </md-radio-group>
+
+          <md-button type="submit" class="md-accent md-raised" ng-disabled="!vm.identityChoice">
+            Send
+          </md-button>
+        </form>
+      </div>
+    </div>
+
+    <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[2]">
+      <div md-whiteframe="2" class="register-policy-verification">
+        <form name="securityCodeFrm" ng-submit="vm.verifyCode()" layout="column" layout-align="center center" layout-fill flex novalidate>
+          <h2>Enter Verification Code</h2>
+          <md-input-container >
+            <label>Verification Code</label>
+            <input required name="code" type="text" ng-model="vm.verificationCode"/>
+            <ng-messages for="securityCodeFrm.code.$error">
+              <ng-message when="required">This is required.</ng-message>
+            </ng-messages>
+          </md-input-container>
+
+          <md-button type="submit" class="md-accent md-raised" ng-disabled="!vm.verificationCode">
+            Send
+          </md-button>
+        </form>
+      </div>
+    </div>
+
+    <div layout="column" layout-align="start center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[3]">
+      <div md-whiteframe="2" class="register-policy-review">
+        <form name="agreementFrm" ng-submit="vm.agreeToPolicy()">
+          <div>
+            <h2>Policy Review</h2>
+          </div>
+          <md-divider></md-divider>
+          <br/>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>Policy Type</label>
+              <br/>
+              <span>{{ vm.policy.type }}</span>
+            </div>
+            <div class="policy-field">
+              <label>Coverage Amount</label>
+              <br/>
+              <span>{{ vm.policy.coverage | currency }}</span>
+            </div>
+          </div>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>First Name</label>
+              <br/>
+              <span>{{ vm.policy.firstName }}</span>
+            </div>
+            <div class="policy-field">
+              <label>Last Name</label>
+              <br/>
+              <span>{{ vm.policy.lastName }}</span>
+            </div>
+          </div>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>Phone</label>
+              <br/>
+              <span>{{ vm.policy.phoneNumber }}</span>
+            </div>
+            <div class="policy-field">
+              <label>Email</label>
+              <br/>
+              <span>{{ vm.policy.email }}</span>
+            </div>
+          </div>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>Address Line 1</label>
+              <br/>
+              <span>{{ vm.policy.addressLine1 }}</span>
+            </div>
+            <div class="policy-field">
+              <label>Address Line 2</label>
+              <br/>
+              <span>{{ vm.policy.addressLine2 }}</span>
+            </div>
+          </div>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>City</label>
+              <br/>
+              <span>{{ vm.policy.city }}</span>
+            </div>
+            <div class="policy-field">
+              <label>State</label>
+              <br/>
+              <span>{{ vm.policy.state}}</span>
+            </div>
+            <div class="policy-field">
+              <label>Zip</label>
+              <br/>
+              <span>{{ vm.policy.zip }}</span>
+            </div>
+          </div>
+          <br/>
+
+          <div layout="row">
+            <div class="policy-field">
+              <label>Beneficiary's First Name</label>
+              <br/>
+              <span>{{ vm.policy.beneficiary.firstName }}</span>
+            </div>
+            <div class="policy-field">
+              <label>Beneficiary's Last Name</label>
+              <br/>
+              <span>{{ vm.policy.beneficiary.lastName }}</span>
+            </div>
+          </div>
+          <br/>
+          <md-button type="submit" class="md-accent md-raised">
+            Accept
+          </md-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

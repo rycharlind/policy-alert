@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+
+  > div {
+    height: 100%;
+    margin-top: 48px;
+  }
+}
+
+@import './header/header';
+@import './home/home';
+@import './my-profile/my-profile';
+@import './register-policy/register-policy';

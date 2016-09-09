@@ -1,0 +1,156 @@
+.register-policy {
+  > md-content {
+    height: 42px;
+    overflow: hidden;
+  }
+  .md-toolbar-tools {
+    height: 42px;
+  }
+
+  .breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    font: 18px Helvetica, Arial, Sans-Serif;
+  }
+  .breadcrumb li {
+    float: left;
+  }
+  .breadcrumb li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0 10px 42px;
+    background: rgb(55,71,79);
+    position: relative;
+    display: block;
+    float: left;
+  }
+  .breadcrumb li a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid rgb(55,71,79);
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+  }
+  .breadcrumb li a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+  }
+  .breadcrumb li:first-child a {
+    padding-left: 10px;
+  }
+  .breadcrumb li:nth-child(2) a       { background:        rgb(55,71,79); }
+  .breadcrumb li:nth-child(2) a:after { border-left-color: rgb(55,71,79); }
+  .breadcrumb li:nth-child(3) a       { background:        rgb(55,71,79); }
+  .breadcrumb li:nth-child(3) a:after { border-left-color: rgb(55,71,79); }
+  .breadcrumb li:nth-child(4) a       { background:        rgb(55,71,79); }
+  .breadcrumb li:nth-child(4) a:after { border-left-color: rgb(55,71,79); }
+  .breadcrumb li:nth-child(5) a       { background:        rgb(55,71,79); }
+  .breadcrumb li:nth-child(5) a:after { border-left-color: rgb(55,71,79); }
+  .breadcrumb li:last-child a {
+    margin-right: 10px;
+  }
+  .breadcrumb li a:hover { background: rgb(255,171,64); }
+  .breadcrumb li a:hover:after { border-left-color: rgb(255,171,64) !important; }
+
+  .breadcrumb-active {
+    background: rgb(255,171,64) !important;;
+    &:after { border-left-color: rgb(255,171,64) !important; }
+  }
+
+  &-container {
+    background: whitesmoke;
+    height: 100%;
+  }
+
+  &-submit,
+  &-identity,
+  &-verification {
+    background: #fff;
+    width: 40%;
+    padding: 40px;
+
+    md-input-container {
+      width: 320px;
+      font-size: 20px;
+    }
+
+    .md-button {
+      font-size: 20px;
+      height: 56px;
+      width: 220px;
+    }
+  }
+
+  &-review {
+    background: #fff;
+    width: 60%;
+    height: 100%;
+    padding: 40px;
+    h2 {
+      margin: 0;
+      font-weight: 100;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    span {
+      font-size: 24px;
+    }
+
+    .md-button {
+      font-size: 20px;
+      height: 56px;
+      width: 220px;
+    }
+  }
+
+  .policy-field {
+    margin-right: 20px;
+    width: 300px;
+  }
+
+  .hint {
+    /* Position the hint */
+    position: absolute;
+    left: 2px;
+    right: auto;
+    bottom: 7px;
+    /* Copy styles from ng-messages */
+    font-size: 12px;
+    line-height: 14px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    /* Set our own color */
+    color: grey;
+  }
+  .hint.ng-hide,
+  .hint.ng-enter,
+  .hint.ng-leave.ng-leave-active {
+    bottom: 26px;
+    opacity: 0;
+  }
+  .hint.ng-leave,
+  .hint.ng-enter.ng-enter-active {
+    bottom: 7px;
+    opacity: 1;
+  }
+}

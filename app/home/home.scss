@@ -1,0 +1,21 @@
+.home {
+
+  &-container {
+    background: #455A64;
+    color: white;
+  }
+
+  h1 {
+    font-size: 4.5em;
+  }
+
+  h3 {
+    font-size: 2.5em;
+  }
+
+  &-register-btn {
+    font-size: 20px;
+    height: 56px;
+    width: 220px;
+  }
+}

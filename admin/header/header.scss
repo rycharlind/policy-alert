@@ -1,0 +1,23 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #263238;
+
+  ul {
+    li > .md-unselected {
+      color: #FBE9E7 !important;
+
+      &:hover {
+        color: rgb(255,171,64) !important;
+      }
+    }
+  }
+
+  .md-nav-bar {
+    background: #263238;
+    border: none;
+    margin-left: 240px;
+  }
+}
