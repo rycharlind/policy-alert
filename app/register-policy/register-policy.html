@@ -14,19 +14,19 @@
   <div class="register-policy-container">
     <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[0]">
       <div class="box-title"><i class="fa fa-search"></i> Policy Lookup</div>
-      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+      <div class="box-desc">Please provide the following details about your insurance policy.  This information should match what is shown on your Insurance Policy documents.  All fields are required. </div>
     </div>
     <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[1]">
       <div class="box-title"><i class="fa fa-universal-access"></i> Verify Identity</div>
-      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+      <div class="box-desc">Next step is to verify we are communicating with the person listed on the insurance policy.  Please select to receive either a SMS Text Message or an Email to verify your identify.</div>
     </div>
     <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[2]">
       <div class="box-title"><i class="fa fa-universal-access"></i> Verify Identity</div>
-      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+      <div class="box-desc">Almost there... you should have received an SMS Text Message with a Verification Code shown.  Please enter the code in the message in the box below.</div>
     </div>
     <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[3]">
       <div class="box-title"><i class="fa fa-eye"></i> Review Policy Info</div>
-      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+      <div class="box-desc">We found your policy!  Now to confirm the information is correct and matches what is on your policy documents.  If all is good then we are done and welcome to Policy Alert!</div>
     </div>
     <div ng-show="vm.states[vm.stateIndex] === vm.states[0]">
       <div md-whiteframe="2" class="register-policy-submit">

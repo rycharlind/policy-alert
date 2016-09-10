@@ -106,7 +106,7 @@ router.get('/getPolicyContract/:hash', function(req, res) {
 
 router.post('/updatePolicyInfo', function(req, res) {
 	var c = policyContract.at(lastCreatedContract);
-	c.infoWasUpdated({from: web3.eth.defaultAccount}).then(function(tx) {
+	c.infoWasUpdated(3, {from: web3.eth.defaultAccount}).then(function(tx) {
 		res.json({result:tx});
 	});
 });

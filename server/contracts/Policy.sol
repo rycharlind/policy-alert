@@ -2,7 +2,6 @@ contract Policy {
     
     string public policyNumber;
     uint[] public keys;
-    string public test;
 
     event Alert(string policyNumber);
 
@@ -14,10 +13,14 @@ contract Policy {
         policyNumber = _policyNumber;    
     }
     
-    function infoWasUpdated() returns(bool sufficient) {
-        test = "ryan";
-        Alert(policyNumber);
-        return true;
+    function infoWasUpdated(key) returns(bool sufficient) {
+        for (uint x = 0; x < keys.length; i++) {
+            if (keys[x] == key) {
+                Alert(policyNumber);
+                return true;
+            }
+        }
+        return false;
     }
 
     function () {
