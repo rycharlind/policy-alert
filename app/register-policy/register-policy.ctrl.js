@@ -61,10 +61,10 @@ export default function ($http, $state) {
       vm.identity = response.data;
       vm.stateIndex++;
     });
+
   };
 
   vm.sendIdentityOption = function () {
-    // vm.stateIndex++;
     $http.get('/api/sendVerificationCode').then(response => {
       vm.stateIndex++;
     });
@@ -76,6 +76,15 @@ export default function ($http, $state) {
       vm.stateIndex++;
     });
   };
+
+  vm.cancelRegistration = function() {
+    $state.go('home');
+  }
+
+  vm.back = function() {
+    vm.stateIndex--;
+  }
+
 
   vm.agreeToPolicy = function () {
     vm.policy.policyNumber = vm.policyToRegister.policyNumber || 1234;

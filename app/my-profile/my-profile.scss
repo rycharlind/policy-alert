@@ -2,7 +2,19 @@
   height:100%;
 
   .my-profile-content {
-    padding:64px;
+    padding:112px 64px;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    padding:0px;
+  }
+
+  h1 {
+    color:rgb(255,171,64) !important;
+  }
+
+  h2 {
+    margin-top:0px;
   }
 
 
@@ -14,12 +26,12 @@
     > md-content {
       height:100%;
       background: rgb(55,71,79);
-      margin-top: 40px;
+      padding-top:112px;
+      padding-left:16px;
     }
 
     md-list {
       height:100%;
-      margin-top:32px;
       md-list-item {
         .md-button {
           display:flex;

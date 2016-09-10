@@ -10,11 +10,30 @@
       </div>
     </md-toolbar>
   </md-content>
-  <div class="register-policy-container" layout="row" flex >
-    <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[0]">
+
+  <div class="register-policy-container">
+    <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[0]">
+      <div class="box-title"><i class="fa fa-search"></i> Policy Lookup</div>
+      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+    </div>
+    <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[1]">
+      <div class="box-title"><i class="fa fa-universal-access"></i> Verify Identity</div>
+      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+    </div>
+    <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[2]">
+      <div class="box-title"><i class="fa fa-universal-access"></i> Verify Identity</div>
+      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+    </div>
+    <div class="box-header" ng-show="vm.states[vm.stateIndex] === vm.states[3]">
+      <div class="box-title"><i class="fa fa-eye"></i> Review Policy Info</div>
+      <div class="box-desc">Please provide us with some information about you so we can look up your policy.</div>
+    </div>
+    <div ng-show="vm.states[vm.stateIndex] === vm.states[0]">
       <div md-whiteframe="2" class="register-policy-submit">
-        <form name="submitPolicyFrm" ng-submit="vm.registerPolicy()" layout="column" layout-align="center center" layout-fill flex novalidate>
-          <h2>Register</h2>
+        <form layout="column" name="submitPolicyFrm" ng-submit="vm.registerPolicy()" novalidate>
+
+          <div class="left" flex-gt-sm="50">
+            <h2>Your Information</h2>
           <md-input-container>
             <label>Last Name</label>
             <input required name="lastName" type="text" ng-model="vm.policyToRegister.lastName"/>
@@ -28,7 +47,10 @@
             <input required name="birthDate" type="text" ng-model="vm.policyToRegister.birthDate"/>
             <div class="hint">MM/DD/YYYY</div>
           </md-input-container>
+            </div>
 
+          <div class="right" flex-gt-sm="50">
+            <h2>Policy Information</h2>
           <md-input-container>
             <label>Carrier</label>
             <md-select required name="carrier" ng-model="vm.policyToRegister.carrier">
@@ -42,6 +64,7 @@
             </ng-messages>
           </md-input-container>
 
+
           <md-input-container >
             <label>Policy Number</label>
             <input required name="policyNumber" type="text" ng-model="vm.policyToRegister.policyNumber"/>
@@ -49,14 +72,22 @@
               <ng-message when="required">This is required.</ng-message>
             </ng-messages>
           </md-input-container>
-          <md-button type="submit" class="md-accent md-raised">
-            Submit
-          </md-button>
+          </div>
+
+          <div class="action-buttons" layout="row" layout-align="space-between">
+            <md-button type="submit" class="md-primary md-link pa-btn-secondary" ng-click="vm.cancelRegistration()">
+              Back
+            </md-button>
+            <md-button type="submit" class="md-accent md-raised" ng-click="registerPolicy()" ng-disabled="!submitPolicyFrm.$valid">
+              Next <i class="fa fa-arrow-right"></i>
+            </md-button>
+          </div>
+
         </form>
       </div>
     </div>
 
-    <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[1]">
+    <div layout="column" ng-show="vm.states[vm.stateIndex] === vm.states[1]">
       <div md-whiteframe="2" class="register-policy-identity">
         <form ng-submit="vm.sendIdentityOption()" layout="column" layout-align="center center" layout-fill flex novalidate>
           <h2>Choose verification option:</h2>
@@ -67,16 +98,21 @@
 
           </md-radio-group>
 
-          <md-button type="submit" class="md-accent md-raised" ng-disabled="!vm.identityChoice">
-            Send
-          </md-button>
+          <div class="action-buttons" layout="row" layout-align="space-between">
+            <md-button class="md-accent md-link pa-btn-secondary" ng-click="vm.back()">
+              Back
+            </md-button>
+            <md-button type="submit" class="md-accent md-raised" ng-click="sendIdentityOption()" ng-disabled="!vm.identityChoice">
+              Send
+            </md-button>
+            </div>
         </form>
       </div>
     </div>
 
     <div layout="column" layout-align="center center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[2]">
       <div md-whiteframe="2" class="register-policy-verification">
-        <form name="securityCodeFrm" ng-submit="vm.verifyCode()" layout="column" layout-align="center center" layout-fill flex novalidate>
+        <form style="padding-right:0px" name="securityCodeFrm" ng-submit="vm.verifyCode()" layout="column" layout-align="center center" layout-fill flex novalidate>
           <h2>Enter Verification Code</h2>
           <md-input-container >
             <label>Verification Code</label>
@@ -86,9 +122,16 @@
             </ng-messages>
           </md-input-container>
 
-          <md-button type="submit" class="md-accent md-raised" ng-disabled="!vm.verificationCode">
-            Send
-          </md-button>
+          <div class="action-buttons" layout="row" layout-align="space-between">
+            <md-button class="md-accent md-link pa-btn-secondary" ng-click="vm.back()">
+              Back
+            </md-button>
+            <md-button type="submit" class="md-accent md-raised" ng-disabled="!vm.verificationCode">
+              Next <i class="fa fa-arrow-right"></i>
+            </md-button>
+          </div>
+
+
         </form>
       </div>
     </div>
@@ -96,104 +139,98 @@
     <div layout="column" layout-align="start center" layout-wrap layout-fill flex ng-show="vm.states[vm.stateIndex] === vm.states[3]">
       <div md-whiteframe="2" class="register-policy-review">
         <form name="agreementFrm" ng-submit="vm.agreeToPolicy()">
-          <div>
-            <h2>Policy Review</h2>
-          </div>
-          <md-divider></md-divider>
-          <br/>
-          <br/>
 
-          <div layout="row">
-            <div class="policy-field">
-              <label>Policy Type</label>
-              <br/>
-              <span>{{ vm.policy.type }}</span>
-            </div>
-            <div class="policy-field">
-              <label>Coverage Amount</label>
-              <br/>
-              <span>{{ vm.policy.coverage | currency }}</span>
+          <div class="review-section">
+            <h1>Policy Info</h1>
+            <div layout="row">
+              <div class="policy-field">
+                <label>Policy Type</label>
+                <div>{{ vm.policy.type }}</div>
+              </div>
+              <div class="policy-field">
+                <label>Coverage Amount</label>
+                <div>{{ vm.policy.coverage | currency }}</div>
+              </div>
             </div>
           </div>
-          <br/>
 
-          <div layout="row">
-            <div class="policy-field">
-              <label>First Name</label>
-              <br/>
-              <span>{{ vm.policy.firstName }}</span>
+          <div class="review-section">
+            <h1>Personal Info</h1>
+            <div layout="row">
+              <div class="policy-field">
+                <label>First Name</label>
+                <div>{{ vm.policy.firstName }}</div>
+              </div>
+              <div class="policy-field">
+                <label>Last Name</label>
+                <div>{{ vm.policy.lastName }}</div>
+              </div>
             </div>
-            <div class="policy-field">
-              <label>Last Name</label>
-              <br/>
-              <span>{{ vm.policy.lastName }}</span>
-            </div>
-          </div>
-          <br/>
 
           <div layout="row">
             <div class="policy-field">
               <label>Phone</label>
-              <br/>
-              <span>{{ vm.policy.phoneNumber }}</span>
+              <div>{{ vm.policy.phoneNumber }}</div>
             </div>
             <div class="policy-field">
               <label>Email</label>
-              <br/>
-              <span>{{ vm.policy.email }}</span>
+              <div>{{ vm.policy.email }}</div>
             </div>
           </div>
-          <br/>
+
 
           <div layout="row">
             <div class="policy-field">
               <label>Address Line 1</label>
-              <br/>
-              <span>{{ vm.policy.addressLine1 }}</span>
+              <div>{{ vm.policy.addressLine1 }}</div>
             </div>
             <div class="policy-field">
               <label>Address Line 2</label>
-              <br/>
-              <span>{{ vm.policy.addressLine2 }}</span>
+              <div>{{ vm.policy.addressLine2 }}</div>
             </div>
           </div>
-          <br/>
 
           <div layout="row">
             <div class="policy-field">
               <label>City</label>
-              <br/>
-              <span>{{ vm.policy.city }}</span>
+              <div>{{ vm.policy.city }}</div>
             </div>
             <div class="policy-field">
               <label>State</label>
-              <br/>
-              <span>{{ vm.policy.state}}</span>
+              <div>{{ vm.policy.state}}</div>
             </div>
             <div class="policy-field">
               <label>Zip</label>
-              <br/>
-              <span>{{ vm.policy.zip }}</span>
+              <div>{{ vm.policy.zip }}</div>
             </div>
           </div>
-          <br/>
+          </div>
 
-          <div layout="row">
-            <div class="policy-field">
-              <label>Beneficiary's First Name</label>
-              <br/>
-              <span>{{ vm.policy.beneficiary.firstName }}</span>
-            </div>
-            <div class="policy-field">
-              <label>Beneficiary's Last Name</label>
-              <br/>
-              <span>{{ vm.policy.beneficiary.lastName }}</span>
+          <div class="review-section">
+            <h1>Beneficiaries</h1>
+            <div layout="row">
+              <div class="policy-field">
+                <label>Beneficiary's First Name</label>
+                <div>{{ vm.policy.beneficiary.firstName }}</div>
+              </div>
+              <div class="policy-field">
+                <label>Beneficiary's Last Name</label>
+                <div>{{ vm.policy.beneficiary.lastName }}</div>
+              </div>
             </div>
           </div>
-          <br/>
-          <md-button type="submit" class="md-accent md-raised">
-            Accept
-          </md-button>
+
+
+
+          <div class="action-buttons" layout="row" style="margin-top:32px">
+            <md-button type="submit" class="md-accent md-raised">
+              Accept <i class="fa fa-check"></i>
+            </md-button>
+            <md-button class="md-accent md-link pa-btn-secondary" ng-click="vm.cancelRegistration()">
+              Not Now
+            </md-button>
+          </div>
+
         </form>
       </div>
     </div>

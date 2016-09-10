@@ -20,5 +20,21 @@
   .md-nav-bar {
     background: #263238;
     border: none;
+    height:84px;
   }
+
+  .md-button._md-nav-button {
+    line-height:55px;
+    font-size:18px;
+  }
+
+  .pa-nav-item-name {
+    font-size:20px;
+    margin-right:48px;
+    i {
+      margin-right:8px;
+    }
+  }
+
+
 }

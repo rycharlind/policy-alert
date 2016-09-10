@@ -11,6 +11,27 @@ html, body {
 	padding:32px;
 	color:#fff;
 	background-color:rgb(255,171,64);
+	font-size:22px;
+	box-shadow: 0 6px 8px 0 rgba(0,0,0,0.2);
+	.box-title {
+		font-size:26px;
+		i {
+			margin-right:12px;
+		}
+	}
+	.box-desc {
+		font-size:16px;
+		color:#000;
+	}
+}
+
+.action-buttons {
+	width:100%;
+}
+
+.pa-btn-secondary {
+	border:1px solid rgb(255,171,64) !important;
+	color:rgb(255,171,64) !important;
 }
 
 @import './header/header';

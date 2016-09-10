@@ -1,11 +1,49 @@
 .register-policy {
   > md-content {
     height: 42px;
-    overflow: hidden;
   }
   .md-toolbar-tools {
     height: 42px;
   }
+
+  .register-policy-container {
+    margin-top:42px;
+    z-index: 10000000000;
+  }
+
+  .register-policy-submit, .register-policy-identity, .register-policy-verification {
+    background: #fff;
+    padding: 32px;
+    width:100%;
+  }
+
+  form {
+    padding-right:64px;
+  }
+
+  .register-policy-review {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+  }
+
+  .review-section {
+    margin-top:32px;
+    .layout-row {
+      margin-top:24px;
+    }
+  }
+
+  .policy-field {
+    label {
+      color:gray;
+    }
+    div {
+      font-size:26px;
+    }
+  }
+
 
   .breadcrumb {
     list-style: none;
