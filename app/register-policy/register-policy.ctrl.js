@@ -64,6 +64,7 @@ export default function ($http, $state) {
   };
 
   vm.sendIdentityOption = function () {
+    // vm.stateIndex++;
     $http.get('/api/sendVerificationCode').then(response => {
       vm.stateIndex++;
     });
@@ -77,7 +78,10 @@ export default function ($http, $state) {
   };
 
   vm.agreeToPolicy = function () {
-    $http.get(`/api/createPolicyContract/${vm.policyToRegister.policyNumber}`).then(response => {
+    vm.policy.policyNumber = vm.policyToRegister.policyNumber || 1234;
+    vm.policy.carrier = vm.policyToRegister.carrier;
+    vm.policy.birthDate = vm.policyToRegister.birthDate;
+    $http.post('/api/createPolicyContract', vm.policy).then(response => {
       $state.go('my-profile')
     });
   };

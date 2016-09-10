@@ -1,16 +1,24 @@
 <div class="home" layout="row" flex>
   <md-content layout="column" layout-align="start center" layout-wrap layout-fill flex class="home-container">
-    <div layout="row" flex>
+    <div layout="row" flex md-whiteframe="2" ayout-padding>
       <table>
         <tr>
+          <th></th>
           <th>Policy Number</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
           <th>Phone Number</th>
         </tr>
-        <tr ng-repeat="policy in policies">
-          <td>{{policy.policyNumber}}</td>
+        <tr ng-repeat="policy in vm.policies" ui-sref="policy-details({ policyNumber: policy.policyNumber})" ng-class="{'fraud': policy.fraud}">
+          <td>
+            <i ng-class="{'fa fa-warning': policy.fraud}"></i>
+          </td>
+          <td>{{ policy.policyNumber }}</td>
+          <td>{{ policy.firstName }}</td>
+          <td>{{ policy.lastName }}</td>
+          <td>{{ policy.email }}</td>
+          <td>{{ policy.phoneNumber }}</td>
         </tr>
       </table>
     </div>

@@ -1,9 +1,8 @@
 /** @ngInject */
-export default function ($state, $firebaseObject) {
+export default function ($state, policies) {
   var vm = this;
 
-  var ref = new Firebase("https://policy-alert.firebaseio.com/policies");
-  $scope.policies = $firebaseObject(ref);
+  vm.policies = policies;
 
   vm.registerPolicy = function () {
     $state.go('register-policy');

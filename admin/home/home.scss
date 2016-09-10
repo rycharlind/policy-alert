@@ -12,5 +12,89 @@
   table {
     width: 100%;
     color: #455A64;
+    border-spacing: 0;
+  }
+  thead > tr {
+    height: 56px;
+  }
+  tbody > tr,
+  th {
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: bold;
+    white-space: nowrap;
+    height: 56px;
+  }
+  th {
+    cursor: pointer;
+  }
+  body > tr {
+    transition: background-color 0.2s;
+  }
+  tbody > tr:not([disabled]):hover {
+    background-color: #eeeeee !important;
+  }
+  tbody > tr.md-selected {
+    background-color: #f5f5f5;
+  }
+  td:first-child,
+  th:first-child {
+    width: 20px;
+    padding: 0 0 0 24px;
+  }
+  td:nth-child(2),
+  th:nth-child(2) {
+    padding: 0 24px;
+  }
+  td:nth-child(n+3):nth-last-child(n+2),
+  th:nth-child(n+3):nth-last-child(n+2) {
+    padding: 0 56px 0 0;
+  }
+  table:not(-select) td:first-child,
+  table:not(-select) th:first-child {
+    padding: 0 24px;
+  }
+  table:not(-select) td:nth-child(n+2):nth-last-child(n+2),
+  table:not(-select) th:nth-child(n+2):nth-last-child(n+2) {
+    padding: 0 56px 0 0;
+  }
+  td,
+  th {
+    vertical-align: middle;
+    text-align: left;
+    font-size: 24px;
+  }
+  td > *,
+  th > * {
+    vertical-align: middle;
+  }
+  td:last-child,
+  th:last-child {
+    padding: 0 24px 0 0;
+  }
+  td.md-clickable,
+  th.md-clickable {
+    cursor: pointer;
+  }
+  td.md-clickable:focus,
+  th.md-clickable:focus {
+    outline: none;
+  }
+  td.md-numeric,
+  th.md-numeric {
+    text-align: right;
+  }
+  td md-checkbox,
+  th md-checkbox {
+    margin: 0;
+    width: 20px;
+  }
+  td {
+    color: rgba(0, 0, 0, 0.87);
+    border-top: 1px rgba(0, 0, 0, 0.12) solid;
+    cursor: pointer;
+  }
+
+  .fraud > td {
+    color: red;
   }
 }
