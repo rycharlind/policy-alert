@@ -15,6 +15,8 @@ import HomeCtrl from './home/home.ctrl.js';
 import MyProfileCtrl from './my-profile/my-profile.ctrl.js';
 import RegisterPolicyCtrl from './register-policy/register-policy.ctrl.js';
 
+import logo from './img/Policy-Alert-Logo3.jpg';
+
 let module = angular.module('policyAlertApp', ['ui.router', 'ngMaterial', 'ngMessages'])
     .component('paHeader', HeaderComp)
     .controller('HeaderCtrl', HeaderCtrl)

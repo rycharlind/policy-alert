@@ -25,8 +25,8 @@ var firebaseRef = firebase.database().ref("/policies");
 // Twilio
 var config = require('./config');
 var twilio = require('twilio')(config.accountSid, config.authToken);
-var consumerPhoneNumber = +16367951705;
-
+var consumerName = "Ryan";
+var consumerPhoneNumber = +16189802256;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -51,7 +51,8 @@ router.get('/sendVerificationCode', function(req, res) {
 	twilio.messages.create({
 		body: message,
 		to: consumerPhoneNumber,
-		from: config.sendingNumber
+		from: config.sendingNumber,
+		messageSid:code
 	}, function(err, data) {
 		if (err) {
 			res.json({error:err});
@@ -70,15 +71,12 @@ router.post('/createPolicyContract', function(req, res) {
 	policyContract.new([1,2,3,4,5], req.body.policyNumber).then(function(contract) {
 		lastCreatedContract = contract.address;
 
-		console.log("sup");
+		firebaseRef.child(contract.address).set(req.body);
 		
-		firebaseRef.push().set(req.body);
-
 		var alertEvent = contract.Alert({fromBlock: "latest", address: web3.eth.defaultAccount});
 		alertEvent.watch(function(error, result) {
 			if (error == null) {
-				console.log(result);
-				var message = "Hi Tammy, your beneficiary information was updated.  Did you update it?  If no, repond back with 1.  Otherwise, ignore this alert.";
+				var message = "POLICY ALERT: Hi " + consumerName + ", the beneficiary information on your " + req.body.carrier + " policy has changed.  If you did not initiate this change, respond back with 1.  Otherwise, ignore this alert.";
 				twilio.messages.create({
 					body: message,
 					to: consumerPhoneNumber,
@@ -87,7 +85,7 @@ router.post('/createPolicyContract', function(req, res) {
 					if (err) {
 						console.log(err);
 					} else {
-					  	console.log(data);
+					  	console.log("Sup wit it ", data.sid);
 					}
 				});
 			} else {
@@ -115,6 +113,7 @@ router.post('/updatePolicyInfo', function(req, res) {
 
 router.get('/receiveMessage', function(req, res) {
 	if (req.query.Body == '1') {
+		firebaseRef.child(lastCreatedContract).update({fraud:true});
 		res.send('<Response><Message>Got it!  Your carrier has been notified.</Message></Response>');
 	} else if (req.query.Body == 'No') {
 		res.send('<Response><Message>Thank you!  You policy is still secured.</Message></Response>');

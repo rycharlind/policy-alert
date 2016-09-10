@@ -1,5 +1,5 @@
 <div class="my-profile" layout="row">
-  <md-sidenav class="side-nav md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+  <md-sidenav class="side-nav md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
     <md-content>
       <md-list flex>
         <md-list-item>
@@ -9,7 +9,7 @@
           <md-button><i class="fa fa-file-text-o"></i> Policies</md-button>
         </md-list-item>
         <md-list-item>
-          <md-button><i class="fa fa-cog"></i> Notification Settings</md-button>
+          <md-button><i class="fa fa-cog"></i> Settings</md-button>
         </md-list-item>
         <md-list-item>
           <md-button><i class="fa fa-question-circle-o"></i> Help</md-button>
@@ -17,7 +17,7 @@
       </md-list>
     </md-content>
   </md-sidenav>
-  <div layout="column" layout-padding flex>
+  <div layout="column" layout-padding flex class="my-profile-content">
     <h1>Congratulations, {{ vm.profile.firstName }} {{ vm.profile.lastName }}!</h1>
 
     <h3>You are now registered with Policy Alert and will be notified when changes to your Insurance Policy Occurs.</h3>

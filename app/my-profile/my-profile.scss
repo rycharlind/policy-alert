@@ -1,15 +1,25 @@
 .my-profile {
+  height:100%;
+
+  .my-profile-content {
+    padding:64px;
+  }
+
+
   md-sidenav {
     height: 100%;
     width: 240px;
     background: rgb(55,71,79);
 
     > md-content {
+      height:100%;
       background: rgb(55,71,79);
       margin-top: 40px;
     }
 
     md-list {
+      height:100%;
+      margin-top:32px;
       md-list-item {
         .md-button {
           display:flex;

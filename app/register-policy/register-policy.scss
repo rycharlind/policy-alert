@@ -78,6 +78,7 @@
   &-container {
     background: whitesmoke;
     height: 100%;
+    margin-top:32px;
   }
 
   &-submit,
@@ -127,6 +128,10 @@
   .policy-field {
     margin-right: 20px;
     width: 300px;
+  }
+
+  md-radio-group {
+    font-size:20px;
   }
 
   .hint {
