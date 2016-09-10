@@ -2,11 +2,19 @@
   	<md-content layout="column" layout-align="start center" layout-wrap layout-fill>
 		<div class="policy-details" md-whiteframe="2">
 			<div layout="column" layout-padding ng-repeat="policy in vm.policy">
+				<h1>Policy Information</h1>
+				<div>
+					<md-input-container flex>
+						<label>Policy Number</label>
+						<input ng-model="policy.policyNumber">
+					</md-input-container>
+					<md-input-container flex>
+						<label>Coverage</label>
+						<input ng-model="policy.coverage">
+					</md-input-container>
+				</div>
+
 				<h1>Contact Information</h1>
-				<md-input-container class="md-block">
-					<label>Policy Number</label>
-					<input ng-model="policy.policyNumber">
-				</md-input-container>
 				<div>
 					<md-input-container flex>
 						<label>First Name</label>
@@ -35,7 +43,7 @@
 					</md-input-container>
 					<md-input-container flex>
 						<label>Last Name</label>
-						<input ng-model="policy.lastName">
+						<input ng-model="policy.beneficiary.lastName">
 					</md-input-container>
 				</div>
 				<div layout="row" layout-padding>

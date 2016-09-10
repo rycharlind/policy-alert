@@ -12,6 +12,9 @@ export default function ($scope, $state) {
       case 'my-profile':
         vm.currentState = 'my-profile';
         break;
+      case 'register-policy':
+        vm.currentState = 'register-policy';
+        break;
       default:
         vm.currentState = null;
         break;
