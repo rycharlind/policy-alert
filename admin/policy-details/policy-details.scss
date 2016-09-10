@@ -1,6 +1,11 @@
 .policy-details {
     width: 60%;
-    padding: 40px;
+    padding: 0 40px 40px 40px;
+    
+    md-input-container {
+      width: 320px;
+      font-size: 20px;
+    }
     
     .md-button {
       font-size: 20px;

@@ -2,7 +2,8 @@
   	<md-content layout="column" layout-align="start center" layout-wrap layout-fill>
 		<div class="policy-details" md-whiteframe="2">
 			<div layout="column" layout-padding ng-repeat="policy in vm.policy">
-				<md-input-container flex>
+				<h1>Contact Information</h1>
+				<md-input-container class="md-block">
 					<label>Policy Number</label>
 					<input ng-model="policy.policyNumber">
 				</md-input-container>
@@ -26,22 +27,20 @@
 						<input ng-model="policy.phoneNumber">
 					</md-input-container>
 				</div>
-			</div>
-
-			<h1>Beneficiary Information</h1>
-			<div layout="row" layout-padding>
-				<md-input-container flex>
-					<label>First Name</label>
-					<input ng-model="policy.beneficiary.firstName">
-				</md-input-container>
-				<md-input-container flex>
-					<label>Last Name</label>
-					<input ng-model="policy.lastName">
-				</md-input-container>
-			</div>
-
-			<div layout="row" layout-padding>
-				<md-button class="md-accent md-raised" ng-click="vm.updateInfo()">Save</md-button>
+				<h1>Beneficiary Information</h1>
+				<div >
+					<md-input-container flex>
+						<label>First Name</label>
+						<input ng-model="policy.beneficiary.firstName">
+					</md-input-container>
+					<md-input-container flex>
+						<label>Last Name</label>
+						<input ng-model="policy.lastName">
+					</md-input-container>
+				</div>
+				<div layout="row" layout-padding>
+					<md-button class="md-accent md-raised" ng-click="vm.updateInfo()">Save</md-button>
+				</div>
 			</div>
 		</div>
 	</md-content>
