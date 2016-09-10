@@ -37,7 +37,7 @@ export default function ($http, $state) {
     'TransAmerica Life Intl',
     'United Farm Family Life'
   ];
-  vm.stateIndex = 3;
+  vm.stateIndex = 0;
   vm.policyToRegister = {
     lastName: null,
     birthDate: null,
@@ -64,9 +64,9 @@ export default function ($http, $state) {
   };
 
   vm.sendIdentityOption = function () {
-    vm.stateIndex++;
-/*    $http.get('/api/sendVerificationCode').then(response => {
-    });*/
+    $http.get('/api/sendVerificationCode').then(response => {
+      vm.stateIndex++;
+    });
   };
 
   vm.verifyCode = function () {

@@ -1,10 +1,12 @@
 .idea
 .vscode
 .gradle
+.env
 *.iml
 node_modules
 /dist
 /coverage
+/server/build
 
 
 
