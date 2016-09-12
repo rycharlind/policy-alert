@@ -93,8 +93,8 @@
           <h2>Choose verification option:</h2>
           <md-radio-group ng-model="vm.identityChoice">
 
-            <md-radio-button ng-value="vm.identity.email" class="md-primary">{{vm.identity.email}}</md-radio-button>
-            <md-radio-button ng-value="vm.identity.phoneNumber">{{vm.identity.phoneNumber}}</md-radio-button>
+            <md-radio-button ng-value="vm.identity.email" class="md-primary" aria-label="email">{{vm.identity.email}}</md-radio-button>
+            <md-radio-button ng-value="vm.identity.phoneNumber" aria-label="phonenumber">{{vm.identity.phoneNumber}}</md-radio-button>
 
           </md-radio-group>
 

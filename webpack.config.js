@@ -217,7 +217,7 @@ module.exports = function makeWebpackConfig () {
         port: PORT,
         proxy: {
             '/api/*': {
-                target: 'http://10.17.28.181:7272'
+                target: 'http://localhost:7272/'
             }
         }
     };
